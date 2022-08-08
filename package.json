@@ -6,7 +6,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
@@ -14,12 +14,22 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^18.6.4",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
+    "datocms-client": "^3.5.21",
     "gatsby": "^4.20.0",
+    "gatsby-plugin-image": "^2.20.0",
+    "gatsby-source-datocms": "^4.0.4",
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
+    "lodash": "^4.17.21",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "save": "^2.5.0",
     "typescript": "^4.7.4"
   },
   "devDependencies": {
