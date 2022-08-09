@@ -1,7 +1,14 @@
 import React from 'react'
+import { Post } from "../Types"
+import Layout from '../components/Layout';
 
-export default function post() {
+export default function GenericPost(props) {
   return (
-    <div>post</div>
+    <Layout>
+      <div>
+        This is: {props.pageContext.title}
+        {/* {JSON.stringify(props)} */}
+      </div>
+    </Layout>
   )
 }
