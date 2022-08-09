@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Post } from "../Types"
 import Layout from '../components/Layout';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"

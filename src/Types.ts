@@ -12,23 +12,3 @@ export type Post = {
   topics: Topic[],
   internal: { contentDigest: string }
 }
-
-// query MyQuery {
-//   datoCmsPosts1 {
-//     postscategory {
-//       slug
-//       title
-//       img {
-//         path
-//       }
-//       description
-//       topics {
-//         topic
-//       }
-//       internal {
-//         contentDigest
-//       }
-//     }
-//   }
-// }
-
