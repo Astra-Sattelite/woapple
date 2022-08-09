@@ -4,6 +4,8 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    // `gatsby-transformer-typescript-css-modules`,
+    // `gatsby-plugin-css-modules-typings`,
     {
       resolve: "gatsby-source-datocms",
       options: {

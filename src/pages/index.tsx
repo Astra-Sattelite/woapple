@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import Layout from "../components/Layout"
-import NewPost from '../components/Post';
+import NewPost from '../components/NewPost';
 
 export default function Home() {
   const query = graphql`
     query MyQuery {
-      datoCmsBlog {
-        posts {
+      datoCmsPosts1 {
+        allposts {
           slug
           title
+          img {
+            gatsbyImageData
+          }
+          description
+          topics {
+            topic
+          }
+          internal {
+            contentDigest
+          }
         }
       }
     }
@@ -21,9 +31,7 @@ export default function Home() {
     <Layout>
       <div>
         <h1>Main page</h1>
-        {data.datoCmsBlog.posts.map(post => 
-          <NewPost title={post.title} slug={post.slug} key={post.slug} />
-        )}
+        {data.datoCmsPosts1.allposts.map(NewPost)}
       </div>
     </Layout>
   )
