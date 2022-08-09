@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
+import Layout from "../components/Layout"
 
 export default function Home() {
   const query = graphql`
     query MyQuery {
-      datoCmsVerylongname {
-        megabool
-        megatitle
+      datoCmsBlog {
+        posts {
+          title
+        }
       }
     }
   `
@@ -14,10 +16,10 @@ export default function Home() {
   const data = useStaticQuery(query)
 
   return (
-    <div>
-      {JSON.stringify(data)}
-      <br />
-      {data.datoCmsVerylongname.megatitle}
-    </div>
+    <Layout>
+      <div>
+        <h1>Main page</h1>
+      </div>
+    </Layout>
   )
 } 
