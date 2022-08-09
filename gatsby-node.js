@@ -29,7 +29,7 @@ exports.createPages = async function ({ graphql, actions }) {
       context: { 
         slug: node.slug, 
         title: node.title, 
-        description: node.description,  
+        description: node.description,
         img: node.img,
         topics: node.topics,
         internal: node.internal
