@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import * as React from 'react'
 
 export default function GenericCategory(props) {
@@ -11,9 +12,11 @@ export default function GenericCategory(props) {
     <div>
       {posts.map(
         post =>
-          <div key={post.slug}>
-            {post.title}
-          </div>
+          <Link to={"/posts/" + post.slug}>
+            <div key={post.slug}>
+              {post.title}
+            </div>
+          </Link>
       )}
     </div>
   )
