@@ -22,6 +22,11 @@ export default function Home() {
           }
         }
       }
+      allDatoCmsTopictype {
+        nodes {
+          topic
+        }
+      }
     }
   `
 
@@ -31,6 +36,10 @@ export default function Home() {
     <Layout>
       <div>
         <h1>Main page</h1>
+        {JSON.stringify(data.allDatoCmsTopictype.nodes)}
+        {data.allDatoCmsTopictype.nodes.map(node => 
+          <p>{JSON.stringify(node.topic)}</p>
+        )}
         {data.datoCmsPosts1.allposts.map(NewPost)}
       </div>
     </Layout>

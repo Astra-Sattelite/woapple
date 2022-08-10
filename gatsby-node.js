@@ -8,7 +8,7 @@ exports.createPages = async function ({ graphql, actions }) {
           slug
           title
           img {
-            gatsbyImageData 
+            gatsbyImageData
           }
           description
           topics {
@@ -17,6 +17,12 @@ exports.createPages = async function ({ graphql, actions }) {
           internal {
             contentDigest
           }
+        }
+      }
+      allDatoCmsTopictype {
+        nodes {
+          topic
+          slug
         }
       }
     }
@@ -33,6 +39,18 @@ exports.createPages = async function ({ graphql, actions }) {
         img: node.img,
         topics: node.topics,
         internal: node.internal
+      }
+    })
+  })
+
+  data.allDatoCmsTopictype.nodes.forEach(node => {
+    actions.createPage({
+      path: "/posts/topic/" + node.topic,
+      component: require.resolve(`./src/templates/category.tsx`),
+      context: {
+        topic: node.topic,
+        slug: node.slug,
+        posts: data.datoCmsPosts1.allposts
       }
     })
   })
