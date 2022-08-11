@@ -1,44 +1,37 @@
 import * as React from 'react'
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { Pagination } from "../Types"
 
-export default function posts() {
-  // const test: Pagination = props.pageContext
-
-  const query = graphql`
-    query GetContents($limit: Int!) {
-      allDatoCmsContenttype(limit: $limit) {
-        nodes {
-          slug
-          title
-          description
-          img {
-            gatsbyImageData
-          }
-          topics {
-            id
-          }
-        }
-      }
-    }
-  `
-  // const pctx: Pagination = props.pageContext
-
-  // const limit: number = pctx.limit
-  // const skip : number = pctx.skip
-  // ($limit: Int!, $skip: Int!)
-
-  // const data = useStaticQuery(query)
+export default function posts({ pageContext, data }) {
 
   return (
     <div>
-      {/* {data.allDatoCmsContenttype.nodes.map(
+      {data.allDatoCmsContenttype.nodes.map(
         content => 
-          <div key={content.slug}>
-            <h1>{content.title}</h1>
-          </div>
-      )} */}
-      {/* {JSON.stringify(test)} */}
+          <Link to={"/post/" + content.slug}>
+            <div key={content.slug}>
+              <h1>{content.title}</h1>
+            </div>
+          </Link>
+      )}
     </div>
   )
 }
+
+export const query = graphql`
+  query pageQuery($limit: Int!, $skip: Int!) {
+    allDatoCmsContenttype(limit: $limit, skip: $skip) {
+      nodes {
+        slug
+        title
+        description
+        img {
+          gatsbyImageData
+        }
+        topics {
+          id
+        }
+      }
+    }
+  }
+`

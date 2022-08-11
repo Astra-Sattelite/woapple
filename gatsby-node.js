@@ -59,17 +59,17 @@ exports.createPages = async function ({ graphql, actions }) {
     })
   })
 
-  // data.allDatoCmsTopictype.nodes.forEach(node => {
-  //   actions.createPage({
-  //     path: "/posts/topic/" + node.topic,
-  //     component: require.resolve(`./src/templates/category.tsx`),
-  //     context: {
-  //       topic: node.topic,
-  //       slug: node.slug,
-  //       posts: data.datoCmsPosts1.allposts
-  //     }
-  //   })
-  // })
+  data.allDatoCmsTopictype.nodes.forEach(node => {
+    actions.createPage({
+      path: "/posts/topic/" + node.topic,
+      component: require.resolve(`./src/templates/category.tsx`),
+      context: {
+        topic: node.topic,
+        slug: node.slug,
+        posts: data.datoCmsPosts1.allposts
+      }
+    })
+  })
 
   const contentsPerPage = 3
   const numPages = Math.ceil(contents.length / contentsPerPage)
@@ -78,11 +78,10 @@ exports.createPages = async function ({ graphql, actions }) {
       path: i === 0 ? '/posts/1' : `/posts/${i + 1}`,
       component: require.resolve(`./src/templates/posts.tsx`),
       context: {
-        limit: contentsPerPage
-        // ,
-        // skip: i * contentsPerPage
-        // numPages,
-        // currentPage: i + 1
+        limit: contentsPerPage,
+        skip: i * contentsPerPage,
+        numPages,
+        currentPage: i + 1
       }
     })
   })
