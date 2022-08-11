@@ -13,7 +13,7 @@ export type Post = {
   internal: { contentDigest: string }
 }
 
-export type Pagination = {
+export type PaginationT = {
   limit: number,
   skip: number,
   numPages: number,

@@ -1,19 +1,23 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby';
-import { Pagination } from "../Types"
+import Pagination from '../components/Pagination';
+import Layout from '../components/Layout';
 
 export default function posts({ pageContext, data }) {
 
   return (
     <div>
-      {data.allDatoCmsContenttype.nodes.map(
-        content => 
-          <Link to={"/post/" + content.slug}>
-            <div key={content.slug}>
-              <h1>{content.title}</h1>
-            </div>
-          </Link>
-      )}
+      <Layout>
+        {data.allDatoCmsContenttype.nodes.map(
+          content => 
+            <Link to={"/post/" + content.slug} key={content.slug}>
+              <div>
+                <h1>{content.title}</h1>
+              </div>
+            </Link>
+        )}
+        <Pagination {...pageContext} />
+      </Layout>
     </div>
   )
 }

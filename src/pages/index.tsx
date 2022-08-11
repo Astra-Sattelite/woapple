@@ -1,7 +1,7 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import Layout from "../components/Layout"
-import NewPost from '../components/NewPost';
+// import NewPost from '../components/NewPost';
 
 export default function Home() {
   const query = graphql`
@@ -34,10 +34,9 @@ export default function Home() {
 
   return (
     <Layout>
-      <h2>All Posts:</h2>
-      <div>
-        {data.datoCmsPosts1.allposts.map(NewPost)}
-      </div>
+      <Link to={"/posts/1"}>
+        <h2>----ALL POSTS WITH PAGINATION----</h2>
+      </Link>
     </Layout>
   )
 } 
