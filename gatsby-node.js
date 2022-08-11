@@ -75,7 +75,7 @@ exports.createPages = async function ({ graphql, actions }) {
   const numPages = Math.ceil(contents.length / contentsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     actions.createPage({
-      path: i === 0 ? '/posts/1' : `/posts/${i + 1}`,
+      path: i === 0 ? '/posts/' : `/posts/${i + 1}`,
       component: require.resolve(`./src/templates/posts.tsx`),
       context: {
         limit: contentsPerPage,
