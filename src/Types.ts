@@ -12,3 +12,10 @@ export type Post = {
   topics: Topic[],
   internal: { contentDigest: string }
 }
+
+export type Pagination = {
+  limit: number,
+  skip: number,
+  numPages: number,
+  currentPage: number
+}

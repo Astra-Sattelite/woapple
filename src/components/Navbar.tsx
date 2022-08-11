@@ -4,10 +4,11 @@ import { Link } from "gatsby"
 export default function Navbar() {
   return (
     <nav>
-      <h1>Nav bar</h1>
+      <h1>Navbar</h1>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/test">Test</Link>
+        <Link to="/">
+          <h2>Main Page</h2>
+        </Link>
       </div>
     </nav>
   )

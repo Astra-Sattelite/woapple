@@ -34,12 +34,8 @@ export default function Home() {
 
   return (
     <Layout>
+      <h2>All Posts:</h2>
       <div>
-        <h1>Main page</h1>
-        {JSON.stringify(data.allDatoCmsTopictype.nodes)}
-        {data.allDatoCmsTopictype.nodes.map(node => 
-          <p>{JSON.stringify(node.topic)}</p>
-        )}
         {data.datoCmsPosts1.allposts.map(NewPost)}
       </div>
     </Layout>

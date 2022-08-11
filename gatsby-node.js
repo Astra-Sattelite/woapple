@@ -25,12 +25,28 @@ exports.createPages = async function ({ graphql, actions }) {
           slug
         }
       }
+      allDatoCmsContenttype {
+        nodes {
+          slug
+          title
+          description
+          img {
+            gatsbyImageData
+          }
+          topics {
+            id
+          }
+        }
+      }
     }
   `)
 
-  data.datoCmsPosts1.allposts.forEach(node => {
+  const posts = data.datoCmsPosts1.allposts
+  const contents = data.allDatoCmsContenttype.nodes
+
+  posts.forEach(node => {
     actions.createPage({
-      path: "/posts/" + node.slug,
+      path: "/post/" + node.slug,
       component: require.resolve(`./src/templates/post.tsx`),
       context: { 
         slug: node.slug, 
@@ -43,7 +59,35 @@ exports.createPages = async function ({ graphql, actions }) {
     })
   })
 
-  data.allDatoCmsTopictype.nodes.forEach(node => {
+  // data.allDatoCmsTopictype.nodes.forEach(node => {
+  //   actions.createPage({
+  //     path: "/posts/topic/" + node.topic,
+  //     component: require.resolve(`./src/templates/category.tsx`),
+  //     context: {
+  //       topic: node.topic,
+  //       slug: node.slug,
+  //       posts: data.datoCmsPosts1.allposts
+  //     }
+  //   })
+  // })
+
+  const contentsPerPage = 3
+  const numPages = Math.ceil(contents.length / contentsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    actions.createPage({
+      path: i === 0 ? '/posts/1' : `/posts/${i + 1}`,
+      component: require.resolve(`./src/templates/posts.tsx`),
+      context: {
+        limit: contentsPerPage
+        // ,
+        // skip: i * contentsPerPage
+        // numPages,
+        // currentPage: i + 1
+      }
+    })
+  })
+
+  posts.forEach(node => {
     actions.createPage({
       path: "/posts/topic/" + node.topic,
       component: require.resolve(`./src/templates/category.tsx`),

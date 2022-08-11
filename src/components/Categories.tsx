@@ -15,11 +15,11 @@ export default function Categories() {
 
   return (
     <div>
-
+      <h2>Categories:</h2>
       {data.allDatoCmsTopictype.nodes.map(
         obj => 
           <Link to={"/posts/topic/" + obj.topic}>
-            <div>{obj.topic}</div>
+            <div><h3>{obj.topic}</h3></div>
           </Link>
       )}
     </div>

@@ -12,9 +12,9 @@ export default function GenericCategory(props) {
     <div>
       {posts.map(
         post =>
-          <Link to={"/posts/" + post.slug}>
+          <Link to={"/post/" + post.slug}>
             <div key={post.slug}>
-              {post.title}
+              <h3>{post.title}</h3>
             </div>
           </Link>
       )}

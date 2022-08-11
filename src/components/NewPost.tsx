@@ -7,11 +7,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 export default function NewPost(props: Post) {
 
   return (
-    <Link to={"/posts/" + props.slug} className="">
+    <Link to={"/post/" + props.slug} className="">
       <div>
-        Hi, I am {props.title}
-        <br />
-        And I have {props.slug} slug
+        <h2>{props.title}</h2>
       </div>
     </Link>
   )
