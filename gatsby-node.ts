@@ -2,12 +2,6 @@ import { GatsbyNode, graphql, CreatePageArgs, useStaticQuery } from "gatsby"
 import { resolve } from "path"
 import { AllCmsData } from "./src/Types"
 
-type Person = {
-  id: number
-  name: string
-  age: number
-}
-
 const query = graphql`
   query GetAllPosts {
     allDatoCmsPost {
