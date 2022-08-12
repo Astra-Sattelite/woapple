@@ -60,7 +60,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   `)
 
   getAllCmsData.resp?.data.allDatoCmsPost.nodes.forEach(post => {
-    
+
+    if (!getAllCmsData.resp) return
+
     const page = {
       path: "/post/" + post.slug,
       component: resolve("./src/templates/post.tsx"),
