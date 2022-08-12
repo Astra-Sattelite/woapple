@@ -66,12 +66,6 @@ export type Source = {
   type: string;
 }
 
-// export type Topic 
-//   = = { topic: "Motivation" }
-//   | = { topic: "Power"      }
-//   | = { topic: "Education"  }
-//   | = { topic: "Greatness"  }
-
 export type Post = {
   slug: string,
   title: string, 
