@@ -1,51 +1,51 @@
 import * as React from 'react'
-import { graphql, useStaticQuery, Link, PageProps } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import Pagination from '../components/Pagination';
 import Layout from '../components/Layout';
-import { PaginationT } from '../Types';
+import { PaginationT, AllDatoCmsPost } from '../Types';
 
-export const TemplatePosts: React.FC = (props: any) => {
+type TemplatePostsData = {
+  allDatoCmsPost: AllDatoCmsPost
+}
 
-  // context: {
-  //   limit: postsPerPage,
-  //   skip: i * postsPerPage,
-  //   numPages,
-  //   currentPage: i + 1
-  // }
-
-  // const t: object = props.pageContext
+export const TemplatePosts = (props: PageProps<TemplatePostsData, PaginationT>) => {
 
   return (
-    <div></div>
-    // <Layout>
-      /* {props.data.allDatoCmsContenttype.nodes.map(
-        content => 
-          <Link to={"/post/" + content.slug} key={content.slug}>
-            <div>
-              <h1>{content.title}</h1>
-            </div>
-          </Link>
-      )} */
-      /* <Pagination {...props.pageContext} /> */
-    // </Layout>
+
+    <Layout>
+      <div>
+        {props.data.allDatoCmsPost.nodes.map(
+          post => 
+            <Link to={"/post/" + post.slug} key={post.slug}>
+              <div>
+                <h1>{post.title}</h1>
+              </div>
+            </Link>
+        )}
+        <Pagination {...props.pageContext} />
+      </div>
+    </Layout>
   )
 }
 
+
+export const query = graphql`
+  query GetAllCmsPostsLimited($limit: Int!, $skip: Int!) {
+    allDatoCmsPost(limit: $limit, skip: $skip) {
+      nodes {
+        title
+        slug
+        description
+        img {
+          gatsbyImageData
+        }
+        topics {
+          topic
+          slug
+        }
+      }
+    }
+  }
+`
+
 export default TemplatePosts
-// export const query = graphql`
-//   query pageQuery($limit: Int!, $skip: Int!) {
-//     allDatoCmsContenttype(limit: $limit, skip: $skip) {
-//       nodes {
-//         slug
-//         title
-//         description
-//         img {
-//           gatsbyImageData
-//         }
-//         topics {
-//           id
-//         }
-//       }
-//     }
-//   }
-// `

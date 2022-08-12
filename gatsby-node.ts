@@ -62,18 +62,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage(page)
   })
 
-  const postsPerPage = 2
-  const numPages = 10 // = Math.ceil((getAllCmsData.data?.allDatoCmsPost.nodes?.length || 0) / postsPerPage)
-  const arr = [1, 2, 3, 4, 5, 6]
+  const postsPerPage: number = 2
+  const numPages: number = Math.ceil((getAllCmsData.data?.allDatoCmsPost.nodes?.length || 0) / postsPerPage)
 
-  arr.forEach((_, i) => {
+
+  Array.from({ length: numPages }).forEach((_, i) => {
     const page = {
       path: i === 0 ? '/posts/' : ("/posts/" + (i + 1)),
       component: resolve(__dirname, `./src/templates/posts.tsx`),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
-        numPage: numPages,
+        numPages,
         currentPage: i + 1
       }
     }
