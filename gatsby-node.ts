@@ -34,9 +34,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const getAllCmsData: { 
     errors?: any,
-    resp?: AllCmsData
+    resp?: AllCmsData['data']
   } = await graphql(`
-    query GetAllPosts {
+    query MyQuery {
       allDatoCmsPost {
         nodes {
           title
@@ -59,13 +59,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   `)
 
-  getAllCmsData.resp?.data.allDatoCmsPost.nodes.forEach(post => {
+  if (getAllCmsData.errors) {
+    console.log('ERROR', getAllCmsData.errors)
+  }
+
+  // if 
+
+  getAllCmsData.resp?.allDatoCmsPost.nodes.forEach(post => {
 
     if (!getAllCmsData.resp) return
 
     const page = {
       path: "/post/" + post.slug,
-      component: resolve("./src/templates/post.tsx"),
+      component: resolve(__dirname, "./src/templates/post.tsx"),
       context: {
         slug: post.slug,
         title: post.title,
