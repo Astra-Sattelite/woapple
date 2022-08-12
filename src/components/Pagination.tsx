@@ -3,7 +3,6 @@ import { PaginationT } from '../Types'
 import { Link } from "gatsby"
 
 export default function Pagination(props: PaginationT) {
-  const isFirst = props.currentPage === 1
   const isLast  = props.currentPage === props.numPages
 
   const prevPage 

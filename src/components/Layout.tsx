@@ -1,15 +1,15 @@
 import * as React from 'react'
 import Navbar from './Navbar';
-import Categories from './Categories';
+// import Categories from './Categories';
 
-export default function Layout({ children }) {
+export default function Layout({ children }: any) {
   
 
   return (
     <div>
       <Navbar />
       <br />
-      <Categories />
+      {/* <Categories /> */}
       <br />
       <div>
         {children}

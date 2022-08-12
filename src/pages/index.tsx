@@ -4,27 +4,53 @@ import Layout from "../components/Layout"
 // import NewPost from '../components/NewPost';
 
 export default function Home() {
+  // const query = graphql`
+  //   query MyQuery {
+  //     datoCmsPosts1 {
+  //       allposts {
+  //         slug
+  //         title
+  //         img {
+  //           gatsbyImageData
+  //         }
+  //         description
+  //         topics {
+  //           topic
+  //         }
+  //         internal {
+  //           contentDigest
+  //         }
+  //       }
+  //     }
+  //     allDatoCmsTopictype {
+  //       nodes {
+  //         topic
+  //       }
+  //     }
+  //   }
+  // `
+
+  // const data = useStaticQuery(query)
+
   const query = graphql`
-    query MyQuery {
-      datoCmsPosts1 {
-        allposts {
-          slug
+    query GetAllPostsT {
+      allDatoCmsPost {
+        nodes {
           title
+          description
           img {
             gatsbyImageData
           }
-          description
+          slug
           topics {
             topic
           }
-          internal {
-            contentDigest
-          }
         }
       }
-      allDatoCmsTopictype {
+      allDatoCmsTopic {
         nodes {
           topic
+          slug
         }
       }
     }
@@ -34,7 +60,8 @@ export default function Home() {
 
   return (
     <Layout>
-      <Link to={"/posts/1"}>
+      {JSON.stringify(data)}
+      <Link to={"/posts/"}>
         <h2>----ALL POSTS WITH PAGINATION----</h2>
       </Link>
     </Layout>
