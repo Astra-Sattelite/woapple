@@ -1,19 +1,24 @@
 import * as React from 'react'
 import Navbar from './Navbar';
-// import Categories from './Categories';
+import Categories from './Categories';
 
-export default function Layout({ children }: any) {
+type LayoutProps = {
+  children: JSX.Element | JSX.Element[]
+}
+
+export const Layout: React.FC<LayoutProps> = (props) => {
   
-
   return (
     <div>
       <Navbar />
       <br />
-      {/* <Categories /> */}
+      <Categories />
       <br />
       <div>
-        {children}
+        {props.children}
       </div>
     </div>
   )
 }
+
+export default Layout

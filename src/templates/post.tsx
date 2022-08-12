@@ -1,21 +1,27 @@
 import * as React from 'react'
-import { Post } from "../Types"
 import Layout from '../components/Layout';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { PageProps } from 'gatsby';
+import { Post } from '../Types';
 
-export default function GenericPost(props: any) {
 
-  // const image = getImage(props.pageContext.img)!
+export const TemplatePost = (props: PageProps<{}, Post>) => {
+
+  const image = getImage(props.pageContext.img)!
 
   return (
     <Layout>
       <div>
-        {/* This is: {props.pageContext.title}
+        This is: {props.pageContext.title}
         <br />
-        <GatsbyImage image={image} alt={props.pageContext.img} /> */}
-        {/* <br /> */}
-        {JSON.stringify(props)}
+        <GatsbyImage image={image} alt="" />
+        <br />
+        Description:
+        <br />
+        {props.pageContext.description}
       </div>
     </Layout>
   )
 }
+
+export default TemplatePost

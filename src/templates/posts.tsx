@@ -4,27 +4,34 @@ import Pagination from '../components/Pagination';
 import Layout from '../components/Layout';
 import { PaginationT } from '../Types';
 
-export default function posts(props: PageProps) {
+export const TemplatePosts: React.FC = (props: any) => {
+
+  // context: {
+  //   limit: postsPerPage,
+  //   skip: i * postsPerPage,
+  //   numPages,
+  //   currentPage: i + 1
+  // }
 
   // const t: object = props.pageContext
 
   return (
-    <div>
-      {/* <Layout>
-        {props.data.allDatoCmsContenttype.nodes.map(
-          content => 
-            <Link to={"/post/" + content.slug} key={content.slug}>
-              <div>
-                <h1>{content.title}</h1>
-              </div>
-            </Link>
-        )}
-        <Pagination {...props.pageContext} />
-      </Layout> */}
-    </div>
+    <div></div>
+    // <Layout>
+      /* {props.data.allDatoCmsContenttype.nodes.map(
+        content => 
+          <Link to={"/post/" + content.slug} key={content.slug}>
+            <div>
+              <h1>{content.title}</h1>
+            </div>
+          </Link>
+      )} */
+      /* <Pagination {...props.pageContext} /> */
+    // </Layout>
   )
 }
 
+export default TemplatePosts
 // export const query = graphql`
 //   query pageQuery($limit: Int!, $skip: Int!) {
 //     allDatoCmsContenttype(limit: $limit, skip: $skip) {

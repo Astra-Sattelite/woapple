@@ -1,6 +1,6 @@
 import { GatsbyNode, graphql, CreatePageArgs, useStaticQuery } from "gatsby"
 import { resolve } from "path"
-import { AllCmsData } from "./src/Types"
+import { AllCmsData, Data } from "./src/Types"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
@@ -10,7 +10,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const getAllCmsData: { 
     errors?: any,
-    resp?: AllCmsData['data']
+    data?: Data
   } = await graphql(`
     query GetAllPosts {
       allDatoCmsPost {
@@ -23,6 +23,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
           slug
           topics {
             topic
+          }
+          internal {
+            content
+            description
+            ignoreType
+            mediaType
           }
         }
       }
@@ -39,19 +45,50 @@ export const createPages: GatsbyNode["createPages"] = async ({
     console.log('ERROR', getAllCmsData.errors)
   }
 
-  getAllCmsData.resp?.allDatoCmsPost.nodes.forEach(post => {
-
-    if (!getAllCmsData.resp) return
+  getAllCmsData.data?.allDatoCmsPost.nodes.forEach(post => {
 
     const page = {
       path: "/post/" + post.slug,
-      component: resolve("./src/templates/post.tsx"),
+      component: resolve(__dirname, "./src/templates/post.tsx"),
       context: {
         slug: post.slug,
         title: post.title,
         description: post.description,
         img: post.img,
         topics: post.topics,
+        internal: post.internal
+      }
+    }
+    createPage(page)
+  })
+
+  const postsPerPage = 2
+  const numPages = 10 // = Math.ceil((getAllCmsData.data?.allDatoCmsPost.nodes?.length || 0) / postsPerPage)
+  const arr = [1, 2, 3, 4, 5, 6]
+
+  arr.forEach((_, i) => {
+    const page = {
+      path: i === 0 ? '/posts/' : ("/posts/" + (i + 1)),
+      component: resolve(__dirname, `./src/templates/posts.tsx`),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPage: numPages,
+        currentPage: i + 1
+      }
+    }
+    console.log(page)
+    createPage(page)
+  })
+  
+  getAllCmsData.data?.allDatoCmsTopic.nodes.forEach(topic => {
+    const page = {
+      path: "/posts/topic/" + topic.topic,
+      component: resolve(__dirname, `./src/templates/category.tsx`),
+      context: {
+        topic: topic.topic,
+        slug: topic.slug,
+        posts: getAllCmsData.data?.allDatoCmsPost.nodes
       }
     }
     createPage(page)
@@ -157,7 +194,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 //     })
 //   })
 // }
-
+// export default createPages
 // // export type Post = {
 // //   slug: string,
 // //   title: string, 
