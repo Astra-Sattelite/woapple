@@ -2,29 +2,29 @@ import { GatsbyNode, graphql, CreatePageArgs, useStaticQuery } from "gatsby"
 import { resolve } from "path"
 import { AllCmsData } from "./src/Types"
 
-const query = graphql`
-  query GetAllPosts {
-    allDatoCmsPost {
-      nodes {
-        title
-        description
-        img {
-          gatsbyImageData
-        }
-        slug
-        topics {
-          topic
-        }
-      }
-    }
-    allDatoCmsTopic {
-      nodes {
-        topic
-        slug
-      }
-    }
-  }
-`
+// const query = graphql`
+//   query GetAllPosts {
+//     allDatoCmsPost {
+//       nodes {
+//         title
+//         description
+//         img {
+//           gatsbyImageData
+//         }
+//         slug
+//         topics {
+//           topic
+//         }
+//       }
+//     }
+//     allDatoCmsTopic {
+//       nodes {
+//         topic
+//         slug
+//       }
+//     }
+//   }
+// `
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
