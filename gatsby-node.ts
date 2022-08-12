@@ -2,30 +2,6 @@ import { GatsbyNode, graphql, CreatePageArgs, useStaticQuery } from "gatsby"
 import { resolve } from "path"
 import { AllCmsData } from "./src/Types"
 
-// const query = graphql`
-//   query GetAllPosts {
-//     allDatoCmsPost {
-//       nodes {
-//         title
-//         description
-//         img {
-//           gatsbyImageData
-//         }
-//         slug
-//         topics {
-//           topic
-//         }
-//       }
-//     }
-//     allDatoCmsTopic {
-//       nodes {
-//         topic
-//         slug
-//       }
-//     }
-//   }
-// `
-
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql
@@ -36,7 +12,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     errors?: any,
     resp?: AllCmsData['data']
   } = await graphql(`
-    query MyQuery {
+    query GetAllPosts {
       allDatoCmsPost {
         nodes {
           title
@@ -63,22 +39,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
     console.log('ERROR', getAllCmsData.errors)
   }
 
-  // if 
-
   getAllCmsData.resp?.allDatoCmsPost.nodes.forEach(post => {
 
     if (!getAllCmsData.resp) return
 
     const page = {
       path: "/post/" + post.slug,
-      component: resolve(__dirname, "./src/templates/post.tsx"),
+      component: resolve("./src/templates/post.tsx"),
       context: {
         slug: post.slug,
         title: post.title,
         description: post.description,
         img: post.img,
         topics: post.topics,
-
       }
     }
     createPage(page)
