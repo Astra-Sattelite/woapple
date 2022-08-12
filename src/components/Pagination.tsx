@@ -13,9 +13,6 @@ export const Pagination = (props: PaginationT) => {
 
   const range = (max: number) => [...Array((max + 1)).keys()].slice(1)
 
-  // console.log(range(props.numPages))
-
-
   return (
     <div>
       <Link to={prevPage}><h3>Previous</h3></Link>
