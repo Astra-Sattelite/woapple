@@ -30,6 +30,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
             ignoreType
             mediaType
           }
+          descriptionNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
       allDatoCmsTopic {
@@ -56,7 +61,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         description: post.description,
         img: post.img,
         topics: post.topics,
-        internal: post.internal
+        internal: post.internal,
+        descriptionNode: post.descriptionNode
       }
     }
     createPage(page)

@@ -8,6 +8,7 @@ import { Post } from '../Types';
 export const TemplatePost = (props: PageProps<{}, Post>) => {
 
   const image = getImage(props.pageContext.img)!
+  const html = props.pageContext.descriptionNode.childMarkdownRemark.html
 
   return (
     <Layout>
@@ -18,7 +19,7 @@ export const TemplatePost = (props: PageProps<{}, Post>) => {
         <br />
         Description:
         <br />
-        {props.pageContext.description}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   )

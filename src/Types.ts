@@ -31,6 +31,11 @@ export type DatoCmsPost = {
   slug: string;
   topics: Topic[];
   internal: object;
+  descriptionNode: {
+    childMarkdownRemark: {
+      html: string
+    }
+  }
 }
 
 export type Img = {
@@ -72,7 +77,12 @@ export type Post = {
   description: string,
   img: { gatsbyImageData: Object },
   topics: AllDatoCmsTopic,
-  internal: object
+  internal: object,
+  descriptionNode: {
+    childMarkdownRemark: {
+      html: string
+    }
+  }
 }
 
 export type PaginationT = {

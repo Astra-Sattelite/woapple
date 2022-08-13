@@ -8,6 +8,7 @@ const config: GatsbyConfig = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-typescript`,
+    'gatsby-plugin-postcss',
     // `gatsby-transformer-typescript-css-modules`,
     // `gatsby-plugin-css-modules-typings`,
     {
