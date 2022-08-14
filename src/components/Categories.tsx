@@ -17,8 +17,7 @@ export const Categories = () => {
   const data: { allDatoCmsTopic: AllDatoCmsTopic } = useStaticQuery(query)
 
   return (
-    <div>
-      <h2>Categories:</h2>
+    <div className="flex flex-row space-x-6 h-14 items-center text-xl">
       {data.allDatoCmsTopic.nodes.map(
         obj => 
           <Link to={"/posts/topic/" + obj.slug} key={obj.slug}>
