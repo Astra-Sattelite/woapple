@@ -24,12 +24,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
           topics {
             topic
           }
-          internal {
-            content
-            description
-            ignoreType
-            mediaType
-          }
           descriptionNode {
             childMarkdownRemark {
               html
@@ -61,7 +55,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         description: post.description,
         img: post.img,
         topics: post.topics,
-        internal: post.internal,
         descriptionNode: post.descriptionNode
       }
     }
@@ -83,7 +76,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         currentPage: i + 1
       }
     }
-    console.log(page)
     createPage(page)
   })
   

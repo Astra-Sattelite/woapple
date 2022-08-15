@@ -25,4 +25,6 @@ export const TemplatePost = (props: PageProps<{}, Post>) => {
   )
 }
 
-export default TemplatePost
+const TemplatePostMemo = React.memo(TemplatePost)
+
+export default TemplatePostMemo

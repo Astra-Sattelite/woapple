@@ -11,7 +11,6 @@ type TemplatePostsData = {
 export const TemplatePosts = (props: PageProps<TemplatePostsData, PaginationT>) => {
 
   return (
-
     <Layout>
       <div>
         {props.data.allDatoCmsPost.nodes.map(
@@ -48,4 +47,6 @@ export const query = graphql`
   }
 `
 
-export default TemplatePosts
+const TemplatePostsMemo = React.memo(TemplatePosts)
+
+export default TemplatePostsMemo

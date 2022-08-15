@@ -1,3 +1,5 @@
+import type { IGatsbyImageData } from "gatsby-plugin-image"
+
 export type AllCmsData = {
   data: Data;
   extensions: Extensions;
@@ -30,7 +32,6 @@ export type DatoCmsPost = {
   img: Img;
   slug: string;
   topics: Topic[];
-  internal: object;
   descriptionNode: {
     childMarkdownRemark: {
       html: string
@@ -39,16 +40,16 @@ export type DatoCmsPost = {
 }
 
 export type Img = {
-  gatsbyImageData: GatsbyImageData;
+  gatsbyImageData: IGatsbyImageData;
 }
 
-export type GatsbyImageData = {
-  images: Images;
-  layout: string;
-  placeholder: Placeholder;
-  width: number;
-  height: number;
-}
+// export type GatsbyImageData = {
+//   images: Images;
+//   layout: string;
+//   placeholder: Placeholder;
+//   width: number;
+//   height: number;
+// }
 
 export type Placeholder = {
   fallback: string;
@@ -75,9 +76,8 @@ export type Post = {
   slug: string,
   title: string, 
   description: string,
-  img: { gatsbyImageData: Object },
+  img: { gatsbyImageData: IGatsbyImageData },
   topics: AllDatoCmsTopic,
-  internal: object,
   descriptionNode: {
     childMarkdownRemark: {
       html: string

@@ -28,4 +28,6 @@ export const TemplateCategory = (props: PageProps<{}, TemplateCategoryProps>) =>
   )
 }
 
-export default TemplateCategory
+const TemplateCategoryMemo = React.memo(TemplateCategory)
+
+export default TemplateCategoryMemo

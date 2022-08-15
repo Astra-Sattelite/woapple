@@ -27,4 +27,6 @@ export const Pagination = (props: PaginationT) => {
   )
 }
 
-export default Pagination
+const PaginationMemo = React.memo(Pagination)
+
+export default PaginationMemo
