@@ -7,7 +7,7 @@ type LayoutProps = {
   children: JSX.Element | JSX.Element[]
 }
 
-const Layout: React.FC<LayoutProps> = (props) => {
+export const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <div className="w-full h-full min-h-full flex-col">
@@ -15,13 +15,11 @@ const Layout: React.FC<LayoutProps> = (props) => {
         <Header />
         <Categories />
       </div>
-      <div className="flex justify-center items-center w-full h-5/6">
+      <div className="flex w-full flex-col gap-6 items-center mt-5">
         {props.children}
       </div>
     </div>
   )
 }
 
-const LayoutMemo = React.memo(Layout)
-
-export default LayoutMemo
+export default Layout

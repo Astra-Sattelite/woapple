@@ -47,6 +47,4 @@ export const query = graphql`
   }
 `
 
-const TemplatePostsMemo = React.memo(TemplatePosts)
-
-export default TemplatePostsMemo
+export default TemplatePosts

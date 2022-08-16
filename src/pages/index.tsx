@@ -1,16 +1,40 @@
 import * as React from "react"
-import {  Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from "../components/Layout"
+import { AllDatoCmsPost } from '../Types';
+import WhompWhomp from "../components/WhompWhomp";
 
 export const Home = () => {
 
+  const data: {allDatoCmsPost: AllDatoCmsPost} = useStaticQuery(query)
+
   return (
     <Layout>
-      <Link to={"/posts/"} className="text-7xl">
-        TO ALL POSTS WITH PAGINATION
-      </Link>
+      {data.allDatoCmsPost.nodes.map(
+        post =>
+          <WhompWhomp {...post} key={"__indexk" + post.slug}/>
+      )}
     </Layout>
   )
 } 
+
+export const query = graphql`
+  query IndexGetAllCmsPostsLimited {
+    allDatoCmsPost(limit: 5) {
+      nodes {
+        title
+        slug
+        description
+        img {
+          gatsbyImageData
+        }
+        topics {
+          topic
+          slug
+        }
+      }
+    }
+  }
+`
 
 export default Home

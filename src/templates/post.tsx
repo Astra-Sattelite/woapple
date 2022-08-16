@@ -25,6 +25,4 @@ export const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
   )
 }
 
-const TemplatePostMemo = React.memo(TemplatePost)
-
-export default TemplatePostMemo
+export default TemplatePost

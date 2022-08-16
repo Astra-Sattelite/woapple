@@ -85,8 +85,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       component: resolve(__dirname, `./src/templates/category.tsx`),
       context: {
         topic: topic.topic,
-        slug: topic.slug,
-        posts: getAllCmsData.data?.allDatoCmsPost.nodes
+        slug: topic.slug
       }
     }
     createPage(page)
