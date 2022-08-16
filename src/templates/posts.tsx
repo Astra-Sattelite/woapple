@@ -34,6 +34,7 @@ export const query = graphql`
         description
         img {
           gatsbyImageData
+          createdAt
         }
         topics {
           topic

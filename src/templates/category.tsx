@@ -36,6 +36,7 @@ export const query = graphql`
           description
           img {
             gatsbyImageData
+            createdAt
           }
           slug
           topics {
