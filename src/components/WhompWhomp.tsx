@@ -2,7 +2,7 @@ import React from 'react'
 import { DatoCmsPost } from '../Types';
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
-export const WhompWhomp = (props: DatoCmsPost) => {
+const WhompWhomp = (props: DatoCmsPost) => {
 
   const image = getImage(props.img.gatsbyImageData)!
 

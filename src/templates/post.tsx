@@ -5,7 +5,7 @@ import { PageProps } from 'gatsby';
 import { DatoCmsPost } from '../Types';
 
 
-export const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
+const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
 
   const image = getImage(props.pageContext.img)!
   const html = props.pageContext.descriptionNode.childMarkdownRemark.html

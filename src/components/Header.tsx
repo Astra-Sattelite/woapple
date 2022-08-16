@@ -20,7 +20,7 @@ const Logo = () => {
   )
 }
 
-export const Header = () => {
+const Header = () => {
 
   const urls: Url[] = [
     {url: "/", title: "Home"},

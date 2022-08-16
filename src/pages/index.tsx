@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import { AllDatoCmsPost } from '../Types';
 import WhompWhomp from "../components/WhompWhomp";
 
-export const Home = () => {
+const Home = () => {
 
   const data: {allDatoCmsPost: AllDatoCmsPost} = useStaticQuery(query)
 
@@ -16,9 +16,9 @@ export const Home = () => {
       )}
     </Layout>
   )
-} 
+}
 
-export const query = graphql`
+const query = graphql`
   query IndexGetAllCmsPostsLimited {
     allDatoCmsPost(limit: 5) {
       nodes {

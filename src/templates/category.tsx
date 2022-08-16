@@ -13,7 +13,7 @@ type TemplateCategoryData = {
   }
 }
 
-export const TemplateCategory = (props: PageProps<TemplateCategoryData, TemplateCategoryProps>) => {
+const TemplateCategory = (props: PageProps<TemplateCategoryData, TemplateCategoryProps>) => {
 
   return (
     <div>

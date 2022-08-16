@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { AllDatoCmsTopic } from '../Types';
 
-export const Categories = () => {
+const Categories = () => {
 
   const query = graphql`
     query GetAllCmsTopics {

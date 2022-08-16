@@ -2,7 +2,7 @@ import * as React from 'react'
 import { PaginationT } from '../Types'
 import { Link } from "gatsby"
 
-export const Pagination = (props: PaginationT) => {
+const Pagination = (props: PaginationT) => {
   const isLast  = props.currentPage === props.numPages
 
   const prevPage 
