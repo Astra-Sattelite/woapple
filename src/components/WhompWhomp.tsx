@@ -11,7 +11,7 @@ export const WhompWhomp = (props: DatoCmsPost) => {
       <div className="h-full w-7/12 rounded-2xl box-border">
         <GatsbyImage
           image={image} alt=""
-          className="h-full w-full rounded-2xl "
+          className="h-full w-full rounded-2xl"
         />
       </div>
       <div className="h-full w-5/12 rounded-2xl box-border">
