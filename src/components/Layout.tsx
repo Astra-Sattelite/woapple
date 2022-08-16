@@ -15,7 +15,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <Header />
         <Categories />
       </div>
-      <div className="flex w-full flex-col gap-6 items-center mt-5">
+      <div className="flex w-full flex-col gap-6 items-center mt-5 pb-4">
         {props.children}
       </div>
     </div>
