@@ -17,13 +17,16 @@ export const Categories = () => {
   const data: { allDatoCmsTopic: AllDatoCmsTopic } = useStaticQuery(query)
 
   return (
-    <div className="flex flex-row space-x-6 h-14 items-center text-xl">
-      {data.allDatoCmsTopic.nodes.map(
-        obj => 
-          <Link to={"/posts/topic/" + obj.slug} key={obj.slug}>
-            <div><h3>{obj.topic}</h3></div>
-          </Link>
-      )}
+    <div className="h-1/2 bg-slate-50 w-full flex justify-center">
+      <div className="flex h-full w-10/12 items-center gap-4 flex-row">
+        <div className="text-2xl text-black">Whomp-whomp</div>
+        {data.allDatoCmsTopic.nodes.map(
+          obj => 
+            <Link to={"/posts/topic/" + obj.slug} key={obj.slug} className="text-1xl">
+              <div>{obj.topic}</div>
+            </Link>
+        )}
+      </div>
     </div>
   )
 }

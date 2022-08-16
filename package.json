@@ -25,6 +25,7 @@
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-plugin-typescript-css-modules": "^1.0.4",
     "gatsby-source-datocms": "^4.0.4",
+    "gatsby-source-filesystem": "^4.20.0",
     "gatsby-transformer-remark": "^5.20.0",
     "gatsby-transformer-sharp": "^4.20.0",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",

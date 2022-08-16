@@ -11,9 +11,9 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
     <div className="w-full h-full min-h-full flex-col">
-      <div className="h-1/6 border-b-2 border-white">
+      <div className="h-28 border-b-2">
         <Header />
-        {/* <Categories /> */}
+        <Categories />
       </div>
       <div className="flex justify-center items-center w-full h-5/6">
         {props.children}

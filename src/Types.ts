@@ -31,13 +31,26 @@ export type DatoCmsPost = {
   description: string;
   img: Img;
   slug: string;
-  topics: Topic[];
+  topics: AllDatoCmsTopic;
   descriptionNode: {
     childMarkdownRemark: {
       html: string
     }
   }
 }
+
+// export type Post = {
+//   title: string, 
+//   description: string,
+//   img: { gatsbyImageData: IGatsbyImageData },
+//   slug: string,
+//   topics: AllDatoCmsTopic,
+//   descriptionNode: {
+//     childMarkdownRemark: {
+//       html: string
+//     }
+//   }
+// }
 
 export type Img = {
   gatsbyImageData: IGatsbyImageData;
@@ -70,19 +83,6 @@ export type Source = {
   srcSet: string;
   sizes: string;
   type: string;
-}
-
-export type Post = {
-  slug: string,
-  title: string, 
-  description: string,
-  img: { gatsbyImageData: IGatsbyImageData },
-  topics: AllDatoCmsTopic,
-  descriptionNode: {
-    childMarkdownRemark: {
-      html: string
-    }
-  }
 }
 
 export type PaginationT = {
