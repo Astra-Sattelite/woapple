@@ -1,4 +1,4 @@
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import * as React from 'react'
 import Layout from '../components/Layout';
 import WhompWhomp from '../components/WhompWhomp';

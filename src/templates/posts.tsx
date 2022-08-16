@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import Pagination from '../components/Pagination';
 import Layout from '../components/Layout';
 import { PaginationT, AllDatoCmsPost } from '../Types';
