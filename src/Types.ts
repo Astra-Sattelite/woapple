@@ -39,30 +39,10 @@ export type DatoCmsPost = {
   }
 }
 
-// export type Post = {
-//   title: string, 
-//   description: string,
-//   img: { gatsbyImageData: IGatsbyImageData },
-//   slug: string,
-//   topics: AllDatoCmsTopic,
-//   descriptionNode: {
-//     childMarkdownRemark: {
-//       html: string
-//     }
-//   }
-// }
 
 export type Img = {
   gatsbyImageData: IGatsbyImageData;
 }
-
-// export type GatsbyImageData = {
-//   images: Images;
-//   layout: string;
-//   placeholder: Placeholder;
-//   width: number;
-//   height: number;
-// }
 
 export type Placeholder = {
   fallback: string;
