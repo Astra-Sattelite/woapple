@@ -1,5 +1,7 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import * as React from 'react'
+import Layout from '../components/Layout';
+import WhompWhomp from '../components/WhompWhomp';
 import { DatoCmsPost } from '../Types';
 
 type TemplateCategoryProps = {
@@ -16,16 +18,12 @@ type TemplateCategoryData = {
 const TemplateCategory = (props: PageProps<TemplateCategoryData, TemplateCategoryProps>) => {
 
   return (
-    <div>
+    <Layout>
       {props.data.allDatoCmsPost.edges.map(
         post =>
-          <Link to={"/post/" + post.node.slug} key={post.node.slug}>
-            <div key={post.node.slug}>
-              <h3>{post.node.title}</h3>
-            </div>
-          </Link>
+          <WhompWhomp {...post.node} key={"__categoryk" + post.node.slug}/>
       )}
-    </div>
+    </Layout>
   )
 }
 

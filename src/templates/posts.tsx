@@ -3,6 +3,7 @@ import { graphql, Link, PageProps } from 'gatsby';
 import Pagination from '../components/Pagination';
 import Layout from '../components/Layout';
 import { PaginationT, AllDatoCmsPost } from '../Types';
+import WhompWhomp from '../components/WhompWhomp';
 
 type TemplatePostsData = {
   allDatoCmsPost: AllDatoCmsPost
@@ -12,17 +13,13 @@ export const TemplatePosts = (props: PageProps<TemplatePostsData, PaginationT>) 
 
   return (
     <Layout>
-      <div>
+      <>
         {props.data.allDatoCmsPost.nodes.map(
           post => 
-            <Link to={"/post/" + post.slug} key={post.slug}>
-              <div>
-                <h1>{post.title}</h1>
-              </div>
-            </Link>
+            <WhompWhomp {...post} key={"__postsk" + post.slug}/>
         )}
         <Pagination {...props.pageContext} />
-      </div>
+      </>
     </Layout>
   )
 }

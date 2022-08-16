@@ -19,6 +19,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           description
           img {
             gatsbyImageData
+            createdAt
           }
           slug
           topics {

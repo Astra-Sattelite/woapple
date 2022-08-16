@@ -42,6 +42,7 @@ export type DatoCmsPost = {
 
 export type Img = {
   gatsbyImageData: IGatsbyImageData;
+  createdAt: string;
 }
 
 export type Placeholder = {
