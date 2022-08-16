@@ -8,12 +8,15 @@ export const WhompWhomp = (props: DatoCmsPost) => {
 
   return (
     <div className="w-4/6 h-64 border-2 rounded-2xl flex flex-row">
-      <div className="h-full w-7/12 rounded-2xl box-border">
+      <div className="h-full w-7/12 border-0 rounded-2xl box-border">
         <GatsbyImage
           image={image} alt=""
-          className="h-full w-full rounded-2xl"
+          className="h-full w-full rounded-2xl rounded-r-none border-r-2"
+          // style={{borderRadius: "1rem"}}     Fix for safari, when asked
+          // imgStyle={{borderRadius: "1rem"}}
         />
       </div>
+
       <div className="h-full w-5/12 rounded-2xl box-border">
         {props.title}
       </div>
