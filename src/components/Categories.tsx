@@ -19,10 +19,10 @@ export const Categories = () => {
   return (
     <div className="h-1/2 bg-slate-50 w-full flex justify-center">
       <div className="flex h-full w-10/12 items-center gap-4 flex-row">
-        <div className="text-2xl text-black">Whomp-whomp</div>
+        <div className="text-2xl text-black font-bold">Whomp</div>
         {data.allDatoCmsTopic.nodes.map(
           obj => 
-            <Link to={"/posts/topic/" + obj.slug} key={obj.slug} className="text-1xl">
+            <Link to={"/posts/topic/" + obj.slug} key={obj.slug} className="text-2xl">
               <div>{obj.topic}</div>
             </Link>
         )}
