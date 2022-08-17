@@ -23,9 +23,7 @@ const FeaturedCircles: React.FC<FeaturedCirclesProps> = (props) => {
 
 const FeaturedButtons = () => {
   const scrollBy: number = 400
-
-  console.log(scrollBy)
-
+    
   return (
     <div className="flex flex-row gap-2">
       <div 
@@ -104,7 +102,7 @@ const Featured = () => {
       <div className="border-white w-11/12 h-8 flex flex-row justify-between">
         <FeaturedCircles num={data.datoCmsFeatured.featuredposts.length} />
         <FeaturedButtons/>
-      </div> 
+      </div>
     </div>
   )
 }
