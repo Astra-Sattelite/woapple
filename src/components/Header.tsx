@@ -24,7 +24,7 @@ const Header = () => {
   const urls: Url[] = [
     {url: "/", title: "Home"},
     {url: "/posts/", title: "Posts"},
-    // {url: "/stories", title: "Stories"},
+    {url: "/stories", title: "Stories"},
   ]
 
   return (
