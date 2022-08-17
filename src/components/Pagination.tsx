@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PaginationT } from '../Types'
 import { Link } from "gatsby"
+import { range } from "../Utils"
 
 const Pagination = (props: PaginationT) => {
   const isLast  = props.currentPage === props.numPages
@@ -10,8 +11,6 @@ const Pagination = (props: PaginationT) => {
       ? "/posts/" 
       : `/posts/${props.currentPage - 1}`
   const nextPage = `/posts/${props.currentPage + 1}`
-
-  const range = (max: number) => [...Array((max + 1)).keys()].slice(1)
 
   return (
     <div>
