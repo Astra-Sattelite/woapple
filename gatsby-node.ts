@@ -38,6 +38,25 @@ export const createPages: GatsbyNode["createPages"] = async ({
           slug
         }
       }
+      datoCmsFeatured {
+        featuredposts {
+          title
+          description
+          img {
+            gatsbyImageData
+            createdAt
+          }
+          slug
+          topics {
+            topic
+          }
+          descriptionNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -91,4 +110,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
     createPage(page)
   })
+
+
+  const storiesPage = {
+    path: "/stories",
+    component: resolve(__dirname, `./src/templates/stories.tsx`),
+    context: {
+      datoCmsFeatured: getAllCmsData.data?.datoCmsFeatured.featuredposts
+    }
+  }
+
+  createPage(storiesPage)
 }

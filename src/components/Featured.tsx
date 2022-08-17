@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import * as React from 'react'
-import { DatoCmsPost } from '../Types'
+import { DatoCmsFeaturedPosts, DatoCmsPost } from '../Types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { range, scrollR } from "../Utils"
 import "../styles/global.css"
@@ -12,7 +12,7 @@ type FeaturedCirclesProps = {
 
 const FeaturedCircles: React.FC<FeaturedCirclesProps> = (props) => {
   return (
-    <div className="flex flex-row gap-4 items-center ">
+    <div className="flex flex-row gap-4 items-center">
       {range(props.num).map(
         i => 
           <div className="p-1 w-0 h-0 bg-white rounded-full select-none" key={"___featuredCirclesk" + i}/>
@@ -60,12 +60,6 @@ const FeaturedPost = (props: DatoCmsPost) => {
   )
 }
 
-type DatoCmsFeaturedPosts = {
-  datoCmsFeatured: {
-    featuredposts: DatoCmsPost[]
-  } 
-}
-
 const Featured = () => {
   const query = graphql`
     query GetFeaturedPosts {
@@ -91,8 +85,22 @@ const Featured = () => {
 
   return (
     <div className="w-screen h-screen bg-black flex flex-col justify-center items-center">
+      
+      <div className="border-white w-11/12 h-8 flex flex-row justify-between text-white">
+        <div 
+          className="font-bold text-left text-4xl"
+        >
+          Featured Stories
+        </div>
+        <Link 
+          to="/stories" 
+          className="rounded-3xl text-2xl p-5 border-2 border-white flex items-center select-none"
+        >
+          View All
+        </Link>
+      </div>
       <div 
-        className="h-3/4 overflow-x-scroll whitespace-nowrap overflow-hidden no-scrollbar scroll-smooth"
+        className="h-3/4 pb-4 pt-4 overflow-x-scroll whitespace-nowrap overflow-hidden no-scrollbar scroll-smooth"
         id="scrollableFeatured"
       >
         {data.datoCmsFeatured.featuredposts.map(

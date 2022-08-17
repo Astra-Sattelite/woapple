@@ -11,6 +11,11 @@ export type Extensions = {
 export type Data = {
   allDatoCmsPost: AllDatoCmsPost;
   allDatoCmsTopic: AllDatoCmsTopic;
+  datoCmsFeatured: AllDatoCmsFeaturedPosts;
+}
+
+export type AllDatoCmsFeaturedPosts = {
+  featuredposts: DatoCmsPost[]
 }
 
 export type AllDatoCmsTopic = {
@@ -71,4 +76,10 @@ export type PaginationT = {
   skip: number,
   numPages: number,
   currentPage: number
+}
+
+export type DatoCmsFeaturedPosts = {
+  datoCmsFeatured: {
+    featuredposts: DatoCmsPost[]
+  } 
 }
