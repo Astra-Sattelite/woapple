@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import * as React from 'react'
 import { DatoCmsPost } from '../Types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -49,13 +49,16 @@ const FeaturedPost = (props: DatoCmsPost) => {
   const date = new Date(props.img.createdAt)
 
   return (
-    <div className="inline-block border-2 h-5/6 w-11/12 m-5 relative" id="featuredPost1">
+    <Link 
+      to={"/post/" + props.slug} id="featuredPost1"
+      className="inline-block border-2 h-5/6 w-11/12 m-5 relative"
+    >
       <GatsbyImage image={image} alt="" className="w-full h-full" />
       <div className="absolute bottom-5 left-5 m-auto text-white text-5xl w-11/12 h-24 text-left overflow-hidden flex flex-col">
         <p>{props.title}</p>
         <p className="text-3xl">{"Posted at: " + date.toLocaleDateString()}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 
