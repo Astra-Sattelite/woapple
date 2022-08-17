@@ -1,6 +1,6 @@
-import { GatsbyNode, graphql, CreatePageArgs, useStaticQuery } from "gatsby"
+import { GatsbyNode } from "gatsby"
 import { resolve } from "path"
-import { AllCmsData, Data } from "./src/Types"
+import { Data } from "./src/Types"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,

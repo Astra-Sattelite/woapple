@@ -18,12 +18,6 @@ body {
   --tw-gradient-to: #000;
 }
 
-body > div > div {
-  height: 100vh;
-  min-height: 100vh;
-  width: 100%;
-}
-
 a {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));

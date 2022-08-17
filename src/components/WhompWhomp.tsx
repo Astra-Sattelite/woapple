@@ -10,12 +10,14 @@ const WhompWhomp = (props: DatoCmsPost) => {
   const date = new Date(props.img.createdAt)
 
   return (
-    <Link to={"/post/" + props.slug} className="w-4/6 h-64 border-2 rounded-2xl flex flex-row max-w-3xl">
-      <div className="h-full w-7/12 border-0 rounded-2xl box-border">
+    <Link 
+      to={"/post/" + props.slug} 
+      className="w-4/6 h-64 border-2 flex flex-row max-w-3xl rounded-2xl overflow-hidden"
+    >
+      <div className="h-full w-7/12 border-10 border-yellow-500">
         <GatsbyImage
           image={image} alt=""
-          className="h-full w-full rounded-2xl rounded-r-none border-r-2"
-          imgStyle={{borderRadius: "1rem", borderTopRightRadius: "0px", borderBottomRightRadius: "0px"}}
+          className="h-full w-full"
         />
       </div>
       <div className="h-full w-5/12 rounded-2xl box-border flex justify-center">
