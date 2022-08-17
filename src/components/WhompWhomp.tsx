@@ -14,7 +14,7 @@ const WhompWhomp = (props: DatoCmsPost) => {
       to={"/post/" + props.slug} 
       className="w-4/6 h-64 border-2 flex flex-row max-w-3xl rounded-2xl overflow-hidden"
     >
-      <div className="h-full w-7/12 border-1">
+      <div className="h-full w-7/12 border-8 border-yellow-500">
         <GatsbyImage
           image={image} alt=""
           className="h-full w-full"

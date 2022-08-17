@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from "../components/Layout"
 import { AllDatoCmsPost } from '../Types';
 import WhompWhomp from "../components/WhompWhomp";
+import Featured from '../components/Featured';
 
 const Home = () => {
 
@@ -10,10 +11,13 @@ const Home = () => {
 
   return (
     <Layout>
-      {data.allDatoCmsPost.nodes.map(
-        post =>
-          <WhompWhomp {...post} key={"__indexk" + post.slug}/>
-      )}
+      <>
+        {data.allDatoCmsPost.nodes.map(
+          post =>
+            <WhompWhomp {...post} key={"__indexk" + post.slug}/>
+        )}
+        <Featured />
+      </>
     </Layout>
   )
 }
