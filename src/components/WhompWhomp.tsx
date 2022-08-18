@@ -2,6 +2,7 @@ import React from 'react'
 import { DatoCmsPost } from '../Types';
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
+import { formatDate } from '../Utils';
 
 const Title = (props: {title: string}) => {
 
@@ -14,11 +15,7 @@ const Title = (props: {title: string}) => {
 
 const PostedAt = (props: {date: Date}) => {
 
-  const monthName = new Intl.DateTimeFormat("en-US", { month: "long" }).format;
-
-  const month: string = monthName(props.date)
-
-  const date = month + ", " + props.date.getFullYear()
+  const date = formatDate(props.date)
 
   return(
     <p className="w-full h-1/6 text-left text-zinc-500 text-sm">

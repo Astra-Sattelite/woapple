@@ -2,7 +2,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import * as React from 'react'
 import { DatoCmsFeaturedPosts, DatoCmsPost } from '../Types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { range, scrollR } from "../Utils"
+import { formatDate, range, scrollR } from "../Utils"
 import "../styles/global.css"
 
 
@@ -44,7 +44,8 @@ const FeaturedButtons = () => {
 
 const FeaturedPost = (props: DatoCmsPost) => {
   const image = getImage(props.img.gatsbyImageData)!
-  const date = new Date(props.img.createdAt)
+
+  const date = formatDate(new Date(props.img.createdAt))
 
   return (
     <Link 
@@ -54,7 +55,7 @@ const FeaturedPost = (props: DatoCmsPost) => {
       <GatsbyImage image={image} alt="" className="w-full h-full" />
       <div className="absolute bottom-5 left-5 m-auto text-white text-5xl w-11/12 h-24 text-left overflow-hidden flex flex-col">
         <p>{props.title}</p>
-        <p className="text-3xl">{"Posted at: " + date.toLocaleDateString()}</p>
+        <p className="text-3xl">{date}</p>
       </div>
     </Link>
   )
