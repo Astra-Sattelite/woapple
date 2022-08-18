@@ -17,12 +17,12 @@ const Categories = () => {
   const data: { allDatoCmsTopic: AllDatoCmsTopic } = useStaticQuery(query)
 
   return (
-    <div className="h-1/2 bg-slate-50 w-full flex justify-center">
+    <div className="h-1/2 bg-white w-full flex justify-center">
       <div className="flex h-full w-10/12 items-center gap-4 flex-row">
-        <div className="text-1xl text-black font-bold">Whomp</div>
+        <div className="text-2xl text-black font-bold">Whomp</div>
         {data.allDatoCmsTopic.nodes.map(
           obj => 
-            <Link to={"/posts/topic/" + obj.slug} key={obj.slug} className="text-1xl">
+            <Link to={"/posts/topic/" + obj.slug} key={obj.slug} className="text-1xl mt-1">
               <div>{obj.topic}</div>
             </Link>
         )}

@@ -9,8 +9,8 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = (props) => {
 
   return (
-    <div className="w-full h-full min-h-full flex-col text-blue-600">
-      <div className="h-28 border-b-2">
+    <div className="w-full h-full min-h-full flex-col bg-slate-50">
+      <div className="h-28">
         <Header />
         <Categories />
       </div>

@@ -25,7 +25,7 @@ const FeaturedButtons = () => {
   const scrollBy: number = 400
     
   return (
-    <div className="flex flex-row gap-2">
+    <div className="flex flex-row gap-2 text-white">
       <div 
         className="p-5 w-0 h-0 border-2 rounded-full flex justify-center items-center text-1xl select-none"
         onClick={() => scrollR(-scrollBy, "scrollableFeatured")}
@@ -85,11 +85,8 @@ const Featured = () => {
 
   return (
     <div className="w-screen h-screen bg-black flex flex-col justify-center items-center">
-      
       <div className="border-white w-11/12 h-8 flex flex-row justify-between text-white">
-        <div 
-          className="font-bold text-left text-4xl"
-        >
+        <div className="font-bold text-left text-4xl">
           Featured Stories
         </div>
         <Link 

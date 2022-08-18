@@ -28,12 +28,20 @@ const Header = () => {
   ]
 
   return (
-    <div className="h-1/2 bg-gray-700 flex justify-center">
+    <div className="
+      h-1/2 bg-zinc-800 
+      flex justify-center 
+      text-neutral-300 font-light"
+    >
       <div className="flex flex-row h-full w-10/12 items-center gap-4">
         <Logo />
         {urls.map(
           url => 
-            <Link to={url.url} key={url.url}>
+            <Link 
+              to={url.url} 
+              key={url.url}
+              className="hover:text-zinc-200"
+            >
               {url.title}
             </Link>
         )}

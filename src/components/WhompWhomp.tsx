@@ -3,6 +3,30 @@ import { DatoCmsPost } from '../Types';
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
 
+const Title = (props: {title: string}) => {
+
+  return (
+    <p className="text-3xl h-5/6 w-full font-bold mt-2">
+      {props.title}
+    </p>
+  )
+}
+
+const PostedAt = (props: {date: Date}) => {
+
+  const monthName = new Intl.DateTimeFormat("en-US", { month: "long" }).format;
+
+  const month: string = monthName(props.date)
+
+  const date = month + ", " + props.date.getFullYear()
+
+  return(
+    <p className="w-full h-1/6 text-left text-zinc-500 text-sm">
+      {date}
+    </p>
+  )
+}
+
 const WhompWhomp = (props: DatoCmsPost) => {
 
   const image = getImage(props.img.gatsbyImageData)!
@@ -12,22 +36,39 @@ const WhompWhomp = (props: DatoCmsPost) => {
   return (
     <Link 
       to={"/post/" + props.slug}
-      className="w-4/6 h-64 border-2 flex flex-row max-w-3xl rounded-2xl overflow-hidden"
+      className="
+        w-5/6 h-64 
+        flex flex-row 
+        max-w-3xl rounded-2xl 
+        overflow-hidden 
+        bg-white
+        text-black
+      "
     >
-      <div className="h-full w-7/12 border-8 border-yellow-500">
+      <div 
+        className="
+          flex items-center
+          justify-center bg-white 
+          h-full w-7/12
+          rounded-2xl
+          rounded-r-none
+        hover:bg-zinc-400
+          transition ease-in-out duration-700
+        "
+      >
         <GatsbyImage
           image={image} alt=""
-          className="h-full w-full"
+          className="
+            h-5/6 w-10/12 
+            hover:scale-105
+            transition ease-in-out duration-700
+          "
         />
       </div>
-      <div className="h-full w-5/12 rounded-2xl box-border flex justify-center">
-        <div className="w-11/12 h-11/12 text-xl flex justify-center flex-col">
-          <div className="w-full h-4/6 flex justify-center">
-            {props.title}
-          </div>
-          <div className="w-full h-2/6 flex justify-center items-center">
-            {"Posted at: " + date.toLocaleDateString()}
-          </div>
+      <div className="h-full w-5/12 rounded-2xl box-border flex justify-center items-center">
+        <div className="w-11/12 h-5/6 text-xl flex-col">
+          <Title title={props.title}/>
+          <PostedAt date={date}/>
         </div>
       </div>
     </Link>
