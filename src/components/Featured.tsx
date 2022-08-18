@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import * as React from 'react'
-import { DatoCmsFeaturedPosts, DatoCmsPost } from '../Types'
+import { DatoCmsPost, AllDatoCmsPost } from '../Types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { formatDate, range, scrollR } from "../Utils"
 import "../styles/global.css"
@@ -89,29 +89,34 @@ const FeaturedPost = (props: DatoCmsPost) => {
 
 const Featured = () => {
   const query = graphql`
-    query GetFeaturedPosts {
-      datoCmsFeatured {
-        featuredposts {
-          slug
+    query GetAllFeatureCmsPosts {
+      allDatoCmsPost(
+        filter: {theme: {eq: "feature"}}
+        sort: {fields: img___createdAt, order: DESC}
+      ) {
+        nodes {
           title
+          slug
+          description
+          img {
+            gatsbyImageData
+            createdAt
+          }
           topics {
             topic
             slug
           }
-          img {
-            createdAt
-            gatsbyImageData
-          }
-          description
+          theme
+          shortdescr
         }
       }
     }
   `
 
-  const data: DatoCmsFeaturedPosts = useStaticQuery(query)
+  const data: { allDatoCmsPost: AllDatoCmsPost } = useStaticQuery(query)
 
   return (
-    <div className="w-screen h-screen bg-black flex flex-col justify-center items-center">
+    <div className="w-screen h-screen bg-black flex flex-col justify-center items-center pb-4">
       <div className="border-white w-9/12 h-8 flex flex-row justify-between text-white">
         <div className="font-bold text-left text-3xl">
           Featured Stories
@@ -119,10 +124,12 @@ const Featured = () => {
         <Link 
           to="/stories" 
           className="
-            rounded-3xl text-1xl 
-            p-5 border-2 
-            border-white flex 
+            rounded-2xl text-1xl
+            p-2 border-2
+            border-white flex
             items-center select-none
+            w-28 h-8
+            justify-center
             hover:bg-white
             hover:text-black
             transition ease-in-out duration-500
@@ -135,12 +142,12 @@ const Featured = () => {
         className="h-5/6 pb-4 w-full pt-4 overflow-x-scroll whitespace-nowrap overflow-hidden no-scrollbar scroll-smooth"
         id="scrollableFeatured"
       >
-        {data.datoCmsFeatured.featuredposts.map(
+        {data.allDatoCmsPost.nodes.map(
           post => <FeaturedPost {...post} key={"__featuredpostk" + post.slug} />
         )}
       </div>
       <div className="border-white w-9/12 h-8 flex flex-row justify-between">
-        <FeaturedCircles num={data.datoCmsFeatured.featuredposts.length} />
+        <FeaturedCircles num={data.allDatoCmsPost.nodes.length} />
         <FeaturedButtons/>
       </div>
     </div>

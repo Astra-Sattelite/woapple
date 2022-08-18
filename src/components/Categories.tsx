@@ -17,7 +17,7 @@ const Categories = () => {
   const data: { allDatoCmsTopic: AllDatoCmsTopic } = useStaticQuery(query)
 
   return (
-    <div className="h-1/2 bg-white w-full flex justify-center">
+    <div className="h-1/2 bg-white w-full flex justify-center overflow-hidden">
       <div className="flex h-full w-10/12 items-center gap-4 flex-row">
         <div className="text-2xl text-black font-bold">Whomp</div>
         {data.allDatoCmsTopic.nodes.map(

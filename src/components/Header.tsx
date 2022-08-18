@@ -31,7 +31,8 @@ const Header = () => {
     <div className="
       h-1/2 bg-zinc-800 
       flex justify-center 
-      text-neutral-300 font-light"
+      text-neutral-300 font-light
+      "
     >
       <div className="flex flex-row h-full w-10/12 items-center gap-4">
         <Logo />

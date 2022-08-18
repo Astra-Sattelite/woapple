@@ -13,15 +13,35 @@ const Pagination = (props: PaginationT) => {
   const nextPage = `/posts/${props.currentPage + 1}`
 
   return (
-    <div>
-      <Link to={prevPage}><h3>Previous</h3></Link>
+    <div className="
+        flex p-1
+        flex-row border-2 
+        gap-3 rounded-2xl
+        max-w-4xl text-1xl
+      "
+    >
+      <Link 
+        to={prevPage}
+        className="p-1"
+      >
+        {"<"}
+      </Link>
       {range(props.numPages).map(
         pageNum =>
-          <Link to={"/posts/" + (pageNum === 1 ? "" : pageNum)} key={"___keyr" + pageNum}>
-            <h3>{pageNum}</h3>
+          <Link 
+            to={"/posts/" + (pageNum === 1 ? "" : pageNum)} 
+            key={"___keyr" + pageNum}
+            className="p-1"
+          >
+            {pageNum}
           </Link>
       )}
-      <Link to={!isLast ? nextPage : `/posts/${props.currentPage}`}><h3>Next</h3></Link>
+      <Link 
+        to={!isLast ? nextPage : `/posts/${props.currentPage}`}
+        className="p-1"
+      >
+        {">"}
+      </Link>
     </div>
   )
 }

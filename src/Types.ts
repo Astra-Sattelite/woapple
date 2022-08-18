@@ -11,7 +11,6 @@ export type Extensions = {
 export type Data = {
   allDatoCmsPost: AllDatoCmsPost;
   allDatoCmsTopic: AllDatoCmsTopic;
-  datoCmsFeatured: AllDatoCmsFeaturedPosts;
 }
 
 export type AllDatoCmsFeaturedPosts = {
@@ -42,6 +41,8 @@ export type DatoCmsPost = {
       html: string
     }
   }
+  theme: string
+  shortdescr: string
 }
 
 

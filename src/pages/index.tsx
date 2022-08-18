@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <Layout>
       <>
-        <p className="w-5/6 max-w-4xl text-3xl font-bold text-left">Latest Posts</p>
+        <p className="w-5/6 max-w-4xl text-3xl font-bold text-left mt-10">Latest Posts</p>
         {data.allDatoCmsPost.nodes.map(
           post =>
             <WhompWhomp {...post} key={"__indexk" + post.slug}/>
@@ -25,7 +25,7 @@ const Home = () => {
 
 const query = graphql`
   query IndexGetAllCmsPostsLimited {
-    allDatoCmsPost(limit: 5) {
+    allDatoCmsPost(limit: 3, sort: {fields: img___createdAt, order: DESC}) {
       nodes {
         title
         slug
@@ -38,6 +38,8 @@ const query = graphql`
           topic
           slug
         }
+        theme
+        shortdescr
       }
     }
   }

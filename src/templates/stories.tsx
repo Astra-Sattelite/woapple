@@ -1,19 +1,43 @@
-import { PageProps } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react'
 import Layout from '../components/Layout'
 import WhompWhomp from '../components/WhompWhomp'
-import { DatoCmsPost } from '../Types';
+import { AllDatoCmsPost } from '../Types';
 
-type StoriesProps = {
-  datoCmsFeatured: DatoCmsPost[]
-}
+const Stories = () => {
 
-const Stories = (props: PageProps<{}, StoriesProps>) => {
+  const query = graphql`
+    query GetAllPosts {
+      allDatoCmsPost(filter: {theme: {eq: "feature"}}) {
+        nodes {
+          title
+          description
+          img {
+            gatsbyImageData
+            createdAt
+          }
+          slug
+          topics {
+            topic
+          }
+          descriptionNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          theme
+          shortdescr
+        }
+      }
+    }
+  `
+
+  const data: { allDatoCmsPost: AllDatoCmsPost } = useStaticQuery(query) 
 
   return (
     <Layout>
       <>
-        {props.pageContext.datoCmsFeatured.map((
+        {data.allDatoCmsPost.nodes.map((
           post => <WhompWhomp {...post} key={"__storiesk" + post.slug}/>
         ))}
       </>

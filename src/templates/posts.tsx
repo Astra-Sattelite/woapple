@@ -40,6 +40,8 @@ export const query = graphql`
           topic
           slug
         }
+        theme
+        shortdescr
       }
     }
   }
