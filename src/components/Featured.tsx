@@ -23,7 +23,7 @@ const FeaturedCircles: React.FC<FeaturedCirclesProps> = (props) => {
 
 const FeaturedButtons = () => {
   const scrollBy: number = 400
-    
+
   return (
     <div className="flex flex-row gap-2 text-white">
       <div 
