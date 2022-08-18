@@ -34,9 +34,9 @@ const WhompWhomp = (props: DatoCmsPost) => {
     <Link 
       to={"/post/" + props.slug}
       className="
-        w-5/6 h-64
+        w-5/6 h-80
         flex flex-row 
-        max-w-3xl rounded-2xl 
+        max-w-4xl rounded-2xl 
         overflow-hidden 
         bg-white
         text-black
