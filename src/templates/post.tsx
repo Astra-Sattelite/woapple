@@ -58,7 +58,7 @@ const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
 
   return (
     <Layout>
-      <div className="w-screen h-screen bg-white flex justify-center">
+      <div className="w-screen h-screen bg-white flex justify-center pb-10">
         <div className="w-3/6 h-full mt-14">
           <ThemeAndDate theme={props.pageContext.theme} date={date}/>
           <Title title={props.pageContext.title}/>
