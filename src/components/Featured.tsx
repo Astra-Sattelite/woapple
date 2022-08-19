@@ -71,16 +71,15 @@ const FeaturedPost = (props: DatoCmsPost) => {
     >
       <GatsbyImage image={image} alt="" className="w-full h-full rounded-2xl" />
       <div className="
-          absolute bottom-5 
-          left-5 m-auto 
-          text-white text-5xl 
+          absolute bottom-0 
+          left-5 m-auto
+          text-white flex-col
           w-11/12 h-24 text-left 
           overflow-hidden flex 
-          flex-col
         "
       >
-        <p>{props.title}</p>
-        <p className="text-3xl">{date}</p>
+        <p className="font-semibold text-4xl">{props.title}</p>
+        <p className="text-sm mt-2">{date}</p>
       </div>
     </Link>
   )
@@ -90,7 +89,7 @@ const Featured = () => {
   const query = graphql`
     query GetAllFeatureCmsPosts {
       allDatoCmsPost(
-        filter: {theme: {eq: "feature"}}
+        filter: {theme: {eq: "Feature"}}
         sort: {fields: img___createdAt, order: DESC}
       ) {
         nodes {

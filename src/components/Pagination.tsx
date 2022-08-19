@@ -31,7 +31,7 @@ const Pagination = (props: PaginationT) => {
           <Link 
             to={"/posts/" + (pageNum === 1 ? "" : pageNum)} 
             key={"___keyr" + pageNum}
-            className="p-1"
+            className={pageNum === props.currentPage ? "p-1 font-bold" : "p-1"}
           >
             {pageNum}
           </Link>

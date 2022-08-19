@@ -19,10 +19,15 @@ const TemplateCategory = (props: PageProps<TemplateCategoryData, TemplateCategor
 
   return (
     <Layout>
-      {props.data.allDatoCmsPost.edges.map(
-        post =>
-          <WhompWhomp {...post.node} key={"__categoryk" + post.node.slug}/>
-      )}
+      <> 
+        <p className="w-5/6 max-w-4xl text-3xl font-bold text-left mt-10">
+          {props.pageContext.topic + " topic"}
+        </p>
+        {props.data.allDatoCmsPost.edges.map(
+          post =>
+            <WhompWhomp {...post.node} key={"__categoryk" + post.node.slug}/>
+        )}
+      </>
     </Layout>
   )
 }
