@@ -60,7 +60,7 @@ const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
   return (
     <Layout>
       <div className="w-screen h-screen bg-white flex justify-center pb-10">
-        <div className="w-3/6 h-full mt-14">
+        <div className="w-4/6 h-full mt-14">
           <SEOPost seoMetaTags={props.pageContext.seoMetaTags} />
           <ThemeAndDate theme={props.pageContext.theme} date={date}/>
           <Title title={props.pageContext.title}/>

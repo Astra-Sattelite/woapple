@@ -119,11 +119,11 @@ const Featured = () => {
   return (
     <div className="w-screen h-screen bg-black flex flex-col justify-center items-center pb-4">
       <div className="border-white w-9/12 h-8 flex flex-row justify-between text-white">
-        <div className="font-bold text-left text-3xl">
+        <div className="font-bold text-left text-2xl">
           Featured Stories
         </div>
-        <Link 
-          to="/stories" 
+        <Link
+          to="/stories"
           className="
             rounded-2xl text-1xl
             p-2 border-2

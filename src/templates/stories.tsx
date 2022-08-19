@@ -8,7 +8,7 @@ const Stories = () => {
 
   const query = graphql`
     query GetAllPosts {
-      allDatoCmsPost(filter: {theme: {eq: "feature"}}) {
+      allDatoCmsPost(filter: {theme: {eq: "Feature"}}) {
         nodes {
           title
           description
