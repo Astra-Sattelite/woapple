@@ -27,6 +27,9 @@ const Stories = () => {
           }
           theme
           shortdescr
+          seoMetaTags {
+            tags
+          }
         }
       }
     }

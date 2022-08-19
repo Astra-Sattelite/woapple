@@ -13,10 +13,6 @@ export type Data = {
   allDatoCmsTopic: AllDatoCmsTopic;
 }
 
-export type AllDatoCmsFeaturedPosts = {
-  featuredposts: DatoCmsPost[]
-}
-
 export type AllDatoCmsTopic = {
   nodes: Topic[];
 }
@@ -43,8 +39,10 @@ export type DatoCmsPost = {
   }
   theme: string
   shortdescr: string
+  seoMetaTags: {
+    tags: DatoCmsPostMetaTag[]
+  }
 }
-
 
 export type Img = {
   gatsbyImageData: IGatsbyImageData;
@@ -79,8 +77,12 @@ export type PaginationT = {
   currentPage: number
 }
 
-export type DatoCmsFeaturedPosts = {
-  datoCmsFeatured: {
-    featuredposts: DatoCmsPost[]
-  } 
+export type DatoCmsPostMetaTag = {
+  tagName: string
+  content?: string
+  attributes?: {
+    property?: string
+    name?: string
+    content: string
+  }
 }

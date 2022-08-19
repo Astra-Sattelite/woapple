@@ -3,7 +3,6 @@ import * as React from 'react'
 import { DatoCmsPost, AllDatoCmsPost } from '../Types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { formatDate, range, scrollR } from "../Utils"
-import "../styles/global.css"
 
 
 type FeaturedCirclesProps = {
@@ -108,6 +107,9 @@ const Featured = () => {
           }
           theme
           shortdescr
+          seoMetaTags {
+            tags
+          }
         }
       }
     }

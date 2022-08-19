@@ -3,6 +3,7 @@ import { DatoCmsPost, Img } from '../Types';
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
 import { firstLetterToUpper, formatDate } from '../Utils';
+import SEOPost from "./SEOPost"
 
 const Theme = (props: {theme: string}) => {
 
@@ -80,6 +81,7 @@ const WhompWhomp = (props: DatoCmsPost) => {
         first-of-type:mt-5
       "
     >
+      <SEOPost seoMetaTags={props.seoMetaTags} />
       <Image image={props.img} />
       <div className="h-full w-5/12 rounded-2xl box-border flex justify-center items-center">
         <div className="w-11/12 h-5/6 text-xl flex-col">
