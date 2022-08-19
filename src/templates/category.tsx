@@ -49,6 +49,9 @@ export const query = graphql`
           }
           theme
           shortdescr
+          seoMetaTags {
+            tags
+          }
         }
       }
     }

@@ -32,6 +32,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
           }
           theme
           shortdescr
+          seoMetaTags {
+            tags
+          }
         }
       }
       allDatoCmsTopic {
@@ -60,7 +63,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
         topics: post.topics,
         descriptionNode: post.descriptionNode,
         theme: post.theme,
-        shortdescr: post.shortdescr
+        shortdescr: post.shortdescr,
+        seoMetaTags: post.seoMetaTags
       }
     }
     createPage(page)

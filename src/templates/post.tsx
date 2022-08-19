@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import { PageProps } from 'gatsby';
 import { DatoCmsPost } from '../Types';
 import { formatDate } from '../Utils';
+import SEOPost from '../components/SEOPost';
 
 const Outliner = () => {
   return (
@@ -60,6 +61,7 @@ const TemplatePost = (props: PageProps<{}, DatoCmsPost>) => {
     <Layout>
       <div className="w-screen h-screen bg-white flex justify-center pb-10">
         <div className="w-3/6 h-full mt-14">
+          <SEOPost seoMetaTags={props.pageContext.seoMetaTags} />
           <ThemeAndDate theme={props.pageContext.theme} date={date}/>
           <Title title={props.pageContext.title}/>
           <ShortDescr shortdescr={props.pageContext.shortdescr}/>
