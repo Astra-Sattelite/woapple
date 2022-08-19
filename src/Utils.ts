@@ -14,9 +14,3 @@ export const formatDate = (date: Date): string => {
 
   return formatedDate
 }
-
-export const firstLetterToUpper = (str: string): string => {
-  const res = str.charAt(0).toUpperCase() + str.slice(1)
-
-  return res
-}

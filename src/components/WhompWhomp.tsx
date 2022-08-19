@@ -2,16 +2,14 @@ import React from 'react'
 import { DatoCmsPost, Img } from '../Types';
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby';
-import { firstLetterToUpper, formatDate } from '../Utils';
+import { formatDate } from '../Utils';
 import SEOPost from "./SEOPost"
 
 const Theme = (props: {theme: string}) => {
 
-  const theme: string = firstLetterToUpper(props.theme)
-
   return (
-    <div className="text-2xl text-zinc-500">
-      {theme}
+    <div className="text-sm text-zinc-500">
+      {props.theme}
     </div>
   )
 }
@@ -85,7 +83,7 @@ const WhompWhomp = (props: DatoCmsPost) => {
       <Image image={props.img} />
       <div className="h-full w-5/12 rounded-2xl box-border flex justify-center items-center">
         <div className="w-11/12 h-5/6 text-xl flex-col">
-          <Theme theme={props.theme}/>
+          <Theme theme={props.theme.toUpperCase()}/>
           <Title title={props.title}/>
           <PostedAt date={date}/>
         </div>

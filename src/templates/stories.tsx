@@ -40,6 +40,7 @@ const Stories = () => {
   return (
     <Layout>
       <>
+        <p className="w-5/6 max-w-4xl text-3xl font-bold text-left mt-10">Stories</p>
         {data.allDatoCmsPost.nodes.map((
           post => <WhompWhomp {...post} key={"__storiesk" + post.slug}/>
         ))}

@@ -14,6 +14,7 @@ export const TemplatePosts = (props: PageProps<TemplatePostsData, PaginationT>) 
   return (
     <Layout>
       <>
+        <p className="w-5/6 max-w-4xl text-3xl font-bold text-left mt-10">All Posts</p>
         {props.data.allDatoCmsPost.nodes.map(
           post => 
             <WhompWhomp {...post} key={"__postsk" + post.slug}/>

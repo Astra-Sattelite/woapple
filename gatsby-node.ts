@@ -90,7 +90,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   
   getAllCmsData.data?.allDatoCmsTopic.nodes.forEach(topic => {
     const page = {
-      path: "/posts/topic/" + topic.topic,
+      path: "/posts/topic/" + topic.topic.toLocaleLowerCase(),
       component: resolve(__dirname, `./src/templates/category.tsx`),
       context: {
         topic: topic.topic,
