@@ -15,7 +15,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: `` // change to env var in future
+        apiToken: `255aa28847fbb3efcda396e1660337` // change to env var in future
       }
     },
   ]
